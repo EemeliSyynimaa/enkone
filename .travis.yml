@@ -5,7 +5,7 @@ compiler:
 language: c
 
 before_install: 
-  - chmod a+x Tools/GENie/genie
+  - chmod a+x tools/genie/linux/genie
 
 script:
   - if [ "$CC" == "clang" ]; then make linux-clang; fi
