@@ -5,5 +5,8 @@ compiler:
 language: c
 
 script:
-  - tools/genie/linux/genie gmake
-  - make
+    - if [ "$CXX" == "clang++" ]; then make linux-clang; fi
+    - if [ "$CXX" == "g++" ]; then make linux-gcc; fi
+    
+notifications:
+    email: false
