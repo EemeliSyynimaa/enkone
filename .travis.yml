@@ -5,8 +5,8 @@ compiler:
 language: c
 
 script:
-    - if [ "$CC" == "clang" ]; then make linux-clang && .build/linux64_clang/bin/helloworld; fi
-    - if [ "$CC" == "gcc" ]; then make linux-gcc && .build/linux64_gcc/bin/helloworld; fi
+    - if [ "$CC" == "clang" ]; then make linux-clang; fi
+    - if [ "$CC" == "gcc" ]; then make linux-gcc; fi
     - $CC --version
 notifications:
     email: false
