@@ -1,10 +1,39 @@
 function build_config(build_dir)
+
+    newoption 
+    {
+        trigger = "gcc",
+        value   = "GCC",
+        description = "Choose GCC flavor",
+        allowed = 
+        {
+            { "linux-gcc", "Linux GCC compiler" },
+            { "linux-clang", "Linux Clang compiler" }
+        }
+    }
+
     if _ACTION == nil then return false end
     
     location(path.join(build_dir, "projects", _ACTION))
         
     if _ACTION == "clean" then
         os.rmdir(build_dir)
+    end
+    
+    if _ACTION == "gmake" then
+        if nil == _OPTIONS["gcc"] then
+            print("Choose a GCC flavor!")
+            os.exit(1)
+        end	
+
+        if "linux-gcc" == _OPTIONS["gcc"] then
+            location(path.join(build_dir, "projects", _ACTION .. "-linux"))
+        elseif "linux-clang" == _OPTIONS["gcc"] then
+            premake.gcc.cc  = "clang"
+            premake.gcc.cxx = "clang++"
+            premake.gcc.ar  = "ar"
+            location(path.join(build_dir, "projects", _ACTION .. "-linux-clang"))
+        end
     end
         
     flags 
