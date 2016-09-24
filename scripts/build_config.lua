@@ -42,6 +42,9 @@ function build_config(build_dir)
         "FatalWarnings"
     }
     
+    configuration "Debug"
+        targetsuffix "-d"
+    
     configuration { "vs*", "x32" }
         targetdir       (path.join(build_dir, "win32_" .. _ACTION, "bin"))
         objdir          (path.join(build_dir, "win32_" .. _ACTION, "obj"))
