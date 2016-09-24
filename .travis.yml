@@ -8,8 +8,8 @@ before_install:
   - chmod a+x tools/genie/linux/genie
 
 script:
-  - if [ "$CC" == "clang" ]; then make linux-clang; fi
-  - if [ "$CC" == "gcc" ]; then make linux-gcc; fi
+  - if [ "$CC" == "clang" ]; then make linux-clang && .build/linux32_clang/bin/helloworld-d; fi
+  - if [ "$CC" == "gcc" ]; then make linux-gcc && .build/linux32_gcc/bin/helloworld-d; fi
   - $CC --version
 notifications:
   email: false
