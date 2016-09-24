@@ -15,7 +15,7 @@ configuration:
   - release
   
 install:
-  - tools\bin\windows\genie %TOOLSET%
+  - tools\genie\windows\genie %TOOLSET%
 
 build:
   project: .build/projects/$(TOOLSET)/enkone.sln
