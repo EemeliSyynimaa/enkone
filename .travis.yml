@@ -6,5 +6,4 @@ language: c
 
 script:
   - tools/genie/linux/genie gmake
-  - make config=debug64
-  - make config=release64
+  - make
