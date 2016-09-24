@@ -1,8 +1,8 @@
 UNAME := $(shell uname)
 ifeq ($(UNAME), $(filter $(UNAME), Linux))
-	OS=linux
+    OS=linux
 else
-	OS=windows
+    OS=windows
 endif
 
 GENIE=tools/genie/$(OS)/genie
@@ -10,14 +10,14 @@ GENIE=tools/genie/$(OS)/genie
 .PHONY: clean
 
 clean:
-	@echo Cleaning...
-	-@rm -rf .build
+    @echo Cleaning...
+    -@rm -rf .build
     @mkdir .build
 
 projgen:
     $(GENIE) vs2013
-	$(GENIE) vs2015
-	$(GENIE) --gcc=linux-gcc gmake
+    $(GENIE) vs2015
+    $(GENIE) --gcc=linux-gcc gmake
     $(GENIE) --gcc=linux-clang gmake
     
 linux-build-gcc:
