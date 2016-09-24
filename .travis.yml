@@ -1,0 +1,15 @@
+compiler:
+  - clang
+  - gcc
+
+language: c
+
+before_install: 
+  - chmod a+x tools/genie/linux/genie
+
+script:
+  - if [ "$CC" == "clang" ]; then make linux-clang && .build/linux64_clang/bin/helloworld-d; fi
+  - if [ "$CC" == "gcc" ]; then make linux-gcc && .build/linux64_gcc/bin/helloworld-d; fi
+  - $CC --version
+notifications:
+  email: false
