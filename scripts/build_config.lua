@@ -42,8 +42,13 @@ function build_config(build_dir)
         "FatalWarnings"
     }
     
-    configuration "Debug"
-        targetsuffix "-d"
+    configuration "debug"
+        targetsuffix    "-d"
+        defines         { "_DEBUG" }
+        flags           { "Symbols" }
+        
+    configuration "release"
+        flags           { "OptimizeSpeed" }
     
     configuration { "vs*", "x32" }
         targetdir       (path.join(build_dir, "win32_" .. _ACTION, "bin"))

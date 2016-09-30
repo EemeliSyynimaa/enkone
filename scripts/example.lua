@@ -2,10 +2,6 @@ function create_example(name)
     project(name)
         targetname(name)
         kind "ConsoleApp"
-        flags
-        {
-            "FatalWarnings"
-        }
         
         includedirs
         {

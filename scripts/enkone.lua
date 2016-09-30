@@ -1,11 +1,6 @@
 project "enkone"
     targetname "enkone"
     kind "StaticLib"
-    flags
-    {
-        "ExtraWarnings",
-        "FatalWarnings"
-    }
 
     files
     {
