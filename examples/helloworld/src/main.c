@@ -7,7 +7,7 @@ int main(int argc, char** argv)
     (void)argc;
     (void)argv;
 
-    printf("Hello world: %d!\n", getNumber());
+    //printf("Hello world: %d!\n", getNumber());
 	
 	return 0;
 }
